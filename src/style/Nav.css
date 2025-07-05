@@ -1,0 +1,89 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c1c);
+  background-size: 400% 400%;
+  animation: backgroundMove 15s ease infinite;
+  padding: 1rem 2rem;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  perspective: 1000px;
+  position: relative;
+}
+
+@keyframes backgroundMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.port {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00fff0;
+  text-shadow: 1px 1px 5px #00adb5;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backface-visibility: hidden;
+}
+
+.nav-item:hover {
+  transform: rotateY(15deg) scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 🔽 Hamburger Button */
+.menu-button {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* 🔽 Mobile Styles */
+@media (max-width: 650px) {
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 99;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-item {
+    margin: 0.5rem 0;
+    text-align: center;
+    width: 150px;
+  }
+}
